@@ -1,12 +1,21 @@
 <div class="modal-login">
   <div class="form-login">
-    <div class="input-modal">
-      <label>Username</label>
-      <input pInputText/>
-    </div>
-    <div class="input-modal">
-      <label>Password</label>
-      <input pInputText/>
-    </div>
+    <form>
+      <h1>Login</h1>
+      <div class="input-modal">
+        <input type="text" placeholder="Username" pInputText/>
+        <i class="pi pi-user"></i>
+      </div>
+      <div class="input-modal">
+        <input type="password" placeholder="Password" pInputText/>
+        <i class="pi pi-lock"></i>
+      </div>
+      <div class="remember-forgot">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="register-link"><p>Don't have an account? <a href="#"> Register</a></p></div>
+    </form>
   </div>
 </div>
