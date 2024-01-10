@@ -55,7 +55,7 @@ public class AuthController {
         return new ResponseEntity<>(createdUserDto, HttpStatus.CREATED);
     }
 
-    @PostMapping
+    @PostMapping("/login")
     public AuthenticationResponse createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws IOException {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(), authenticationRequest.getPassword()));
@@ -74,6 +74,6 @@ public class AuthController {
             authenticationResponse.setUserRole(optionalUser.get().getUserRole());
             authenticationResponse.setUserId(optionalUser.get().getId());
         }
-        return new AuthenticationResponse();
+        return authenticationResponse;
     }
 }
