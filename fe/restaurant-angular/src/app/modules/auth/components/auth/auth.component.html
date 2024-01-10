@@ -1,22 +1,34 @@
 <div class="modal-login">
   <div class="form-login">
     <form>
-      <h1>Login</h1>
+      <h1 *ngIf="!isRegister">Login</h1>
+      <h1 *ngIf="isRegister">Register</h1>
       <div class="input-modal">
         <input type="text" placeholder="Username" pInputText/>
         <i class="pi pi-user"></i>
+      </div>
+      <div class="input-modal" *ngIf="isRegister">
+        <input type="text" placeholder="Email" pInputText/>
+        <i class="pi pi-envelope"></i>
       </div>
       <div class="input-modal">
         <input [type]="showPass[0] ? 'text' : 'password'" placeholder="Password" pInputText/>
         <i class="pi" [ngClass]="{'pi-eye': !showPass[0], 'pi-eye-slash': showPass[0]}"
            (click)="showPass[0]=!showPass[0]"></i>
       </div>
-      <div class="remember-forgot">
+      <div class="input-modal" *ngIf="isRegister">
+        <input [type]="showPass[0] ? 'text' : 'password'" placeholder="Confirm Password" pInputText/>
+        <i class="pi" [ngClass]="{'pi-eye': !showPass[0], 'pi-eye-slash': showPass[0]}"
+           (click)="showPass[0]=!showPass[0]"></i>
+      </div>
+      <div class="remember-forgot" *ngIf="!isRegister">
         <label><input type="checkbox"> Remember me</label>
         <a href="#">Forgot password?</a>
       </div>
-      <button type="submit" class="btn">Login</button>
-      <div class="register-link"><p>Don't have an account? <a href="#"> Register</a></p></div>
+      <button type="submit" class="btn" *ngIf="!isRegister">Login</button>
+      <button type="submit" class="btn" *ngIf="isRegister">Register</button>
+      <div class="register-link" *ngIf="!isRegister"><p>Don't have an account? <a (click)="onRegister()"> Register</a></p></div>
+      <div class="register-link" *ngIf="isRegister"><p>Do you have an account? <a (click)="onLogin()"> Login</a></p></div>
     </form>
   </div>
 </div>

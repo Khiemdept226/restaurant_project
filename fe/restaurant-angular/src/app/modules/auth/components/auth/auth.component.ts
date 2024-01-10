@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
   showPass = [false, false, false];
+  isRegister = false
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onRegister() {
+    this.isRegister = true
+  }
+
+  onLogin() {
+    this.isRegister = false
   }
 
 }
