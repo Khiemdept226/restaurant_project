@@ -13,6 +13,6 @@ export class AuthService extends BaseService {
   }
 
   logIn(user: any): Observable<any> {
-    return this.http.post(this.authEndpoint + 'logIn', user)
+    return this.http.post(this.authEndpoint + 'login', user)
   }
 }

@@ -3,11 +3,11 @@
     <form [formGroup]="formLogin">
       <h1 *ngIf="!isRegister">Login</h1>
       <h1 *ngIf="isRegister">Register</h1>
-      <div class="input-modal">
+      <div class="input-modal" *ngIf="isRegister">
         <input formControlName="name" type="text" placeholder="Username" pInputText/>
         <i class="pi pi-user"></i>
       </div>
-      <div class="input-modal" *ngIf="isRegister">
+      <div class="input-modal">
         <input formControlName="email" type="text" placeholder="Email" pInputText/>
         <i class="pi pi-envelope"></i>
       </div>

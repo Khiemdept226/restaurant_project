@@ -53,7 +53,26 @@ export class AuthComponent implements OnInit {
   onSubmitForm() {
     if (this.isRegister) {
       this.registerNewUser()
+    } else {
+      this.loginUser()
     }
+  }
+
+  loginUser() {
+    const form = this.formLogin.value
+    const newUser = {
+      email: form.email,
+      password: form.password
+    }
+    this.authService.logIn(newUser).subscribe({
+      next: data => {
+        console.log(data)
+        this.snackBar.displaySuccessful('Register successful')
+      },
+      error: err => {
+        this.snackBar.displayError('Register fail')
+      }
+    })
   }
 
   registerNewUser() {
@@ -68,10 +87,11 @@ export class AuthComponent implements OnInit {
       next: value => {
         console.log(value)
         if (value) {
-          this.snackBar.displaySuccessful('Add User successful')
+          this.snackBar.displaySuccessful('Register successful')
         }
       },
       error: err => {
+        this.snackBar.displayError('Register fail')
         console.log(err)
       }
     })
