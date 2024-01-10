@@ -7,8 +7,9 @@
         <i class="pi pi-user"></i>
       </div>
       <div class="input-modal">
-        <input type="password" placeholder="Password" pInputText/>
-        <i class="pi pi-lock"></i>
+        <input [type]="showPass[0] ? 'text' : 'password'" placeholder="Password" pInputText/>
+        <i class="pi" [ngClass]="{'pi-eye': !showPass[0], 'pi-eye-slash': showPass[0]}"
+           (click)="showPass[0]=!showPass[0]"></i>
       </div>
       <div class="remember-forgot">
         <label><input type="checkbox"> Remember me</label>
