@@ -4,6 +4,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import {SharedModule} from "../shared/shared.module";
 import {PasswordModule} from "primeng/password";
 import {InputTextModule} from "primeng/inputtext";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 

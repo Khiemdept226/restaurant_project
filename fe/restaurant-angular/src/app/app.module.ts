@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import {SharedModule} from "./modules/shared/shared.module";
 import {AuthModule} from "./modules/auth/auth.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastModule} from "primeng/toast";
+import {MessageService} from "primeng/api";
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -16,11 +19,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    SharedModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,20 +1,18 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../../../../environments/environment";
+import {BaseService} from "../../shared/services/base.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  API_GW: string;
-
-
-  constructor(private http: HttpClient) {
-    this.API_GW = environment.apiUrl.endsWith('/') ? environment.apiUrl : environment.apiUrl + '/';
-  }
+export class AuthService extends BaseService {
+  private authEndpoint = this.API_GW + 'auth/';
 
   signUp(user: any): Observable<any> {
-    return this.http.post(this.API_GW + 'auth/signup', user)
+    return this.http.post(this.authEndpoint + 'signup', user)
+  }
+
+  logIn(user: any): Observable<any> {
+    return this.http.post(this.authEndpoint + 'logIn', user)
   }
 }

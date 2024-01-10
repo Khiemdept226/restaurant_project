@@ -81,6 +81,14 @@
   color: #333;
   font-weight: 600;
 }
+.btn:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.btn:disabled {
+  opacity: 0.7 !important;
+  background: #b2a3a3 !important;
+}
 .register-link {
   font-size: 14px;
   text-align: center;
