@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+  items!: MenuItem[] ;
   constructor() { }
 
   ngOnInit(): void {
+    this.items = [
+      {
+        label: 'Categories',
+        icon: 'pi pi-external-link',
+        routerLink: 'dashboard'
+      },
+      {
+        label: 'Navigate',
+        icon: 'pi pi-upload',
+        routerLink: 'fileupload'
+      }
+    ];
   }
 
 }

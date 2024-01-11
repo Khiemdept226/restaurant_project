@@ -9,6 +9,7 @@ import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import { HeaderComponent } from './components/headers/header.component';
 import { MenuComponent } from './components/menu/menu.component';
+import {MenuModule} from "primeng/menu";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MenuComponent } from './components/menu/menu.component';
     CommonModule,
     PasswordModule,
     HttpClientModule,
+    MenuModule,
   ],
   exports: [
     CommonModule,
