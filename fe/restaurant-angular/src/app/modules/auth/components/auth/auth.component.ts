@@ -3,6 +3,9 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Snackbar} from "../../../../util/utils";
 import {MessageService} from "primeng/api";
+import {StorageService} from "../../../shared/services/storage.service";
+import {Router} from "@angular/router";
+import {iif} from "rxjs";
 
 @Component({
   selector: 'app-auth',
@@ -18,7 +21,8 @@ export class AuthComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private messageService: MessageService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
     this.initFormLogin()
   }
 
@@ -67,10 +71,23 @@ export class AuthComponent implements OnInit {
     this.authService.logIn(newUser).subscribe({
       next: data => {
         console.log(data)
-        this.snackBar.displaySuccessful('Register successful')
+        if (data) {
+          const user = {
+            id: data.userId,
+            role: data.userRole
+          }
+          StorageService.saveToken(data.jwt)
+          StorageService.saveUser(user)
+          if (StorageService.isAdminLogin()) {
+            this.router.navigateByUrl('admin')
+          } else if (StorageService.isCustomerLogin()) {
+            this.router.navigateByUrl('customer')
+          }
+        }
+        this.snackBar.displaySuccessful('Login successful')
       },
       error: err => {
-        this.snackBar.displayError('Register fail')
+        this.snackBar.displayError('Login fail')
       }
     })
   }

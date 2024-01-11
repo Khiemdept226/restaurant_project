@@ -7,10 +7,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {BaseService} from "./services/base.service";
 import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
+import { HeaderComponent } from './components/headers/header.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
   declarations: [
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +28,8 @@ import {ToastModule} from "primeng/toast";
     InputTextModule,
     PasswordModule,
     ToastModule,
+    HeaderComponent,
+    MenuComponent
   ],
 })
 export class SharedModule { }
