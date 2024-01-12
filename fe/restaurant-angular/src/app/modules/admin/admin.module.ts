@@ -5,17 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent } from './admin-page.component';
 import {SharedModule} from "../shared/shared.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import {FieldsetModule} from "primeng/fieldset";
 
 
 @NgModule({
   declarations: [
     AdminPageComponent,
     DashboardComponent,
+    AddCategoryComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    FieldsetModule
   ]
 })
 export class AdminModule { }

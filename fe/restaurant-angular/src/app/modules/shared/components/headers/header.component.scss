@@ -1,9 +1,12 @@
 .icon-user{
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-top: 4px;
-  justify-content: flex-end;
+  //display: flex;
+  //align-items: center;
+  //margin-top: 4px;
+  //justify-content: flex-end;
+  position: absolute;
+  top: 4px;
+  right: 0;
 }
 :host ::ng-deep .p-menu {
   position: absolute;

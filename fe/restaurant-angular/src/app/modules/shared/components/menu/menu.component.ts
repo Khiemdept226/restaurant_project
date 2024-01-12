@@ -13,15 +13,15 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Categories',
+        label: 'Dashboard',
         icon: 'pi pi-external-link',
         routerLink: 'dashboard'
       },
       {
-        label: 'Navigate',
-        icon: 'pi pi-upload',
-        routerLink: 'fileupload'
-      }
+        label: 'Categories',
+        icon: 'pi pi-box',
+        routerLink: 'category'
+      },
     ];
   }
 
