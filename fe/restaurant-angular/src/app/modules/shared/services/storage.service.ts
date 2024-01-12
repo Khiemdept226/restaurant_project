@@ -45,4 +45,9 @@ export class StorageService {
     }
     return this.getUserRole() === 'CUSTOMER'
   }
+
+  static logOut() {
+    localStorage.removeItem('jwt')
+    localStorage.removeItem('user')
+  }
 }

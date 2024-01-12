@@ -4,12 +4,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {HttpClientModule} from "@angular/common/http";
-import {BaseService} from "./services/base.service";
-import {MessageService} from "primeng/api";
+import { AvatarModule } from 'primeng/avatar';
 import {ToastModule} from "primeng/toast";
 import { HeaderComponent } from './components/headers/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {MenuModule} from "primeng/menu";
+import {SplitButtonModule} from "primeng/splitbutton";
 
 
 @NgModule({
@@ -22,6 +22,8 @@ import {MenuModule} from "primeng/menu";
     PasswordModule,
     HttpClientModule,
     MenuModule,
+    AvatarModule,
+    SplitButtonModule
   ],
   exports: [
     CommonModule,

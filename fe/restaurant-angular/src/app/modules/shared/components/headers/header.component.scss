@@ -1,0 +1,13 @@
+.icon-user{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  justify-content: flex-end;
+}
+:host ::ng-deep .p-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background-color: #f6f6f6;
+}
