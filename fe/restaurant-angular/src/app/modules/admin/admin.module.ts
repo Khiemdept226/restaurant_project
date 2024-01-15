@@ -8,18 +8,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import {FieldsetModule} from "primeng/fieldset";
 
-
 @NgModule({
   declarations: [
     AdminPageComponent,
     DashboardComponent,
     AddCategoryComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    SharedModule,
-    FieldsetModule
-  ]
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        SharedModule,
+        FieldsetModule,
+    ]
 })
 export class AdminModule { }
