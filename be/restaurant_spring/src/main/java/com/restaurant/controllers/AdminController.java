@@ -1,9 +1,11 @@
 package com.restaurant.controllers;
 
 import com.restaurant.dtos.CategoryDto;
+import com.restaurant.dtos.ProductDto;
 import com.restaurant.services.admin.AdminService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +37,15 @@ public class AdminController {
         List<CategoryDto> categoryDtoList =  adminService.getAllCategoriesByTitle(title);
         if (categoryDtoList == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(categoryDtoList);
+    }
+
+    // Product Operation
+
+    @PostMapping("{categoryId}/product")
+    public ResponseEntity<?> postProduct(@PathVariable Long categoryId, @ModelAttribute ProductDto productDto) throws IOException {
+        ProductDto postProduct = adminService.postProduct(categoryId, productDto);
+        if (postProduct == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Something went wrong");
+        return ResponseEntity.status(HttpStatus.CREATED).body(postProduct);
     }
 
 }
