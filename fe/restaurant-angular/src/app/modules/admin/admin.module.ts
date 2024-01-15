@@ -7,6 +7,8 @@ import {SharedModule} from "../shared/shared.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import {FieldsetModule} from "primeng/fieldset";
+import {RatingModule} from "primeng/rating";
+import {TagModule} from "primeng/tag";
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import {FieldsetModule} from "primeng/fieldset";
     DashboardComponent,
     AddCategoryComponent,
   ],
-    imports: [
-        CommonModule,
-        AdminRoutingModule,
-        SharedModule,
-        FieldsetModule,
-    ]
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    SharedModule,
+    FieldsetModule,
+    RatingModule,
+    TagModule,
+  ]
 })
 export class AdminModule { }

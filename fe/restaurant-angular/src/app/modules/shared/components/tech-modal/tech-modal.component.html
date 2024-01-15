@@ -1,0 +1,14 @@
+<div class="tech-modal" [ngClass]="{'show':isShow}">
+  <div class="tech-panel">
+    <div class="tech-panel-title">
+      <span>{{title}}</span>
+      <i class="pi pi-times" (click)="hide()"></i>
+    </div>
+    <div class="tech-panel-body">
+      <ng-content select="div"></ng-content>
+    </div>
+    <div class="tech-panel-footer">
+      <ng-content select="button"></ng-content>
+    </div>
+  </div>
+</div>

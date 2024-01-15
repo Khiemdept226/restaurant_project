@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {TechModalComponent} from "../../../shared/components/tech-modal/tech-modal.component";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 interface City {
   name: string;
@@ -10,20 +12,49 @@ interface City {
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
+  @ViewChild('modalAdd') modalAdd!: TechModalComponent;
   value: string | undefined;
-  cities: City[] | undefined;
-  selectedCity: City | undefined;
 
-  constructor() { }
+  products = [
+    {
+      id: '1000',
+      name: 'Bamboo Watch 1',
+      description: 'Product Description',
+      image: 'bamboo-watch.jpg',
+    },
+    {
+      id: '1001',
+      name: 'Bamboo Watch 2',
+      description: 'Product Description',
+      image: 'bamboo-watch.jpg',
+
+    },
+    {
+      id: '1003',
+      name: 'Bamboo Watch 3',
+      description: 'Product Description',
+      image: 'bamboo-watch.jpg',
+    },
+  ];
+
+  formAdd!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.initFormAdd();
+  }
 
   ngOnInit(): void {
-    this.cities = [
-      {name: 'New York', code: 'NY'},
-      {name: 'Rome', code: 'RM'},
-      {name: 'London', code: 'LDN'},
-      {name: 'Istanbul', code: 'IST'},
-      {name: 'Paris', code: 'PRS'}
-    ];
+  }
+
+  initFormAdd() {
+    this.formAdd = this.formBuilder.group({
+      name: [null, []],
+      description: [null, []]
+    })
+  }
+
+  addCategory() {
+    this.modalAdd.show()
   }
 
 }

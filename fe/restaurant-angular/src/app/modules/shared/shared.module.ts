@@ -10,12 +10,15 @@ import { HeaderComponent } from './components/headers/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {MenuModule} from "primeng/menu";
 import {SplitButtonModule} from "primeng/splitbutton";
+import {ButtonModule} from "primeng/button";
+import { TechModalComponent } from './components/tech-modal/tech-modal.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    TechModalComponent
   ],
   imports: [
     CommonModule,
@@ -32,8 +35,10 @@ import {SplitButtonModule} from "primeng/splitbutton";
     InputTextModule,
     PasswordModule,
     ToastModule,
+    ButtonModule,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    TechModalComponent
   ],
 })
 export class SharedModule { }
