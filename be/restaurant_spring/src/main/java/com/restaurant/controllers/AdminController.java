@@ -41,11 +41,19 @@ public class AdminController {
 
     // Product Operation
 
-    @PostMapping("{categoryId}/product")
+    @PostMapping("/{categoryId}/product")
     public ResponseEntity<?> postProduct(@PathVariable Long categoryId, @ModelAttribute ProductDto productDto) throws IOException {
         ProductDto postProduct = adminService.postProduct(categoryId, productDto);
         if (postProduct == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Something went wrong");
         return ResponseEntity.status(HttpStatus.CREATED).body(postProduct);
     }
+
+    @GetMapping("/{categoryId}/products")
+    public ResponseEntity<List<ProductDto>> getAllProductsByCategory(@PathVariable Long categoryId) {
+        List<ProductDto> productDtoList =  adminService.getAllProductsByCategory(categoryId);
+        if (productDtoList == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(productDtoList);
+    }
+
 
 }

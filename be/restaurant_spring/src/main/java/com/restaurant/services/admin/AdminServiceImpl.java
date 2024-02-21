@@ -59,4 +59,9 @@ public class AdminServiceImpl implements AdminService{
         }
         return null;
     }
+
+    @Override
+    public List<ProductDto> getAllProductsByCategory(Long categoryId) {
+        return productRepository.findAllByCategoryId(categoryId);
+    }
 }

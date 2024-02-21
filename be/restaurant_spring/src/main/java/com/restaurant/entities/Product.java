@@ -19,6 +19,7 @@ public class Product {
 
     private String description;
 
+    @Column(columnDefinition = "longblob")
     private byte[] img;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
