@@ -17,7 +17,7 @@
         <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
              [ngClass]="{ 'border-top-1 surface-border': !first }">
           <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
-               [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image" [alt]="item.name"/>
+               [src]="item.processedImg" [alt]="item.name"/>
           <div
             class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
             <div class="flex flex-column align-items-center sm:align-items-start gap-3">
@@ -33,20 +33,26 @@
     </div>
   </div>
 </p-fieldset>
-<app-tech-modal [title]="'ADD CATEGORY'" #modalAdd>
+<app-tech-modal [title]="'ADD CATEGORY'" #modalAdd (afterHide)="resetDataAfterHide()">
   <div>
-    <form [formGroup]="formAdd" class="flex-wrap flex w-full">
-    <span class="w-6 p-float-label p-2">
+    <div class="p-3">
+      <div class="w-full card" *ngIf="selectedFile">
+        <img class="w-full" [src]="imagePreview" alt="profile">
+      </div>
+      <p-button  label="Upload" icon="pi pi-upload" (click)="upLoad.click()"></p-button>
+      <input #upLoad style="display: none" type="file" name="" id="upload_profile_image" (change)="onFileSelected($event)">
+    </div>
+    <form [formGroup]="formAdd" class="flex-wrap flex w-full p-2">
+      <span class="w-6 p-float-label p-2">
         <input class="w-full" pInputText formControlName="name"/>
         <label for="name">Name</label>
     </span>
       <span class="w-6 p-float-label p-2">
         <input class="w-full" pInputText formControlName="description"/>
-        <label for="name">Name</label>
+        <label for="name">Description</label>
     </span>
     </form>
   </div>
-  <button>
-    Save
-  </button>
+  <button style="background-color: white; color: black; border: 1px solid #ccc;" pButton label="Cancel" class="md:align-self-end mb-2" (click)="modalAdd.hide()"></button>
+  <button pButton label="Save" class="md:align-self-end mb-2" (click)="postCategory()"></button>
 </app-tech-modal>

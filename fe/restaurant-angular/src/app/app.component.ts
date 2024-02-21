@@ -17,9 +17,17 @@ export class AppComponent implements OnInit{
     const pathName = window.location.pathname;
     if (pathName !== '/signup') {
       if (StorageService.isCustomerLogin()) {
-        this.router.navigateByUrl('customer')
+        if (pathName === '/') {
+          this.router.navigateByUrl('customer')
+        } else {
+          this.router.navigate([window.location.pathname]);
+        }
       } else if (StorageService.isAdminLogin()) {
-        this.router.navigateByUrl('admin')
+        if (pathName === '/') {
+          this.router.navigateByUrl('admin')
+        } else {
+          this.router.navigate([window.location.pathname]);
+        }
       } else {
         this.router.navigate(['/signup'])
       }

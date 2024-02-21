@@ -17,21 +17,28 @@ export class BaseService {
   }
 
   createHttpOption(withAccessToken: boolean) {
-    let header: HttpHeaders | null;
+    let header: HttpHeaders | undefined;
     if (withAccessToken) {
       header = this.createHeaderWithAccessToken();
+    }else {
+      header = this.createHeader();
     }
     // @ts-ignore
     return {headers: header};
   }
 
-  createHeaderWithAccessToken(): HttpHeaders | null {
+  createHeader(): HttpHeaders {
+    return new HttpHeaders({'Content-Type': 'application/json'});
+  }
+
+
+  createHeaderWithAccessToken(): HttpHeaders | undefined {
     const accessToken = StorageService.getToken();
     if (accessToken) {
       return new HttpHeaders({'Authorization': 'Bearer ' + accessToken});
     } else {
       this.router.navigateByUrl('/');
-      return null;
+      return undefined;
     }
   }
 }

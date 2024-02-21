@@ -9,6 +9,7 @@
   right: 0;
 }
 :host ::ng-deep .p-menu {
+  z-index: 2;
   position: absolute;
   top: 52px;
   right: 0;

@@ -9,6 +9,8 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import {FieldsetModule} from "primeng/fieldset";
 import {RatingModule} from "primeng/rating";
 import {TagModule} from "primeng/tag";
+import {FileUploadModule} from "primeng/fileupload";
+import {ImageModule} from "primeng/image";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import {TagModule} from "primeng/tag";
     FieldsetModule,
     RatingModule,
     TagModule,
+    FileUploadModule,
+    ImageModule,
   ]
 })
 export class AdminModule { }
